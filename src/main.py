@@ -3,7 +3,7 @@ import analysis.LoadDeflection as LoadDeflection
 if __name__ == "__main__":
 
     # クライアントからの入力受付
-    values = input("(a, b, E) > ")
+    values = input("\n(a, b, E) > ")
     a, b, E = map(float, values.split(","))
     
     # a = 8.95376

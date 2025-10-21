@@ -7,37 +7,60 @@ def plot(a, b, E):
     # フォント設定
     lang.set_font(font_name=None or lang.find_japanese_font())
  
-    # x 軸の範囲（0〜10）
-    x = np.linspace(0, 5)
+    # x軸の範囲
+    RANGE = 5
 
-    # 5つの式
-    y1 = a*x + b
-    y2 = a*x
-    y3 = E*x
-    y4 = (E*1.05)*x
-    y5 = (E*0.95)*x
+    x_line = np.linspace(0, RANGE, 100)
+    x_dot  = np.arange(1, RANGE)
+
+    # 5つの式（線用）
+    y1_line = a*x_line + b
+    y2_line = a*x_line
+    y3_line = E*x_line
+    y4_line = (E*1.05)*x_line
+    y5_line = (E*0.95)*x_line
+
+    # 5つの式（点用）
+    y1_dot = a*x_dot + b
+    y2_dot = a*x_dot
+    y3_dot = E*x_dot
+    y4_dot = (E*1.05)*x_dot
+    y5_dot = (E*0.95)*x_dot
 
     # グラフ作成
     plt.figure(figsize=(8, 6))
 
-    plt.plot(x, y1, color='gray', label='y = ax + b')
-    plt.plot(x, y2, color='blue', label='y = ax')
-    plt.plot(x, y3, color='red', label='y = Ex')
-    plt.plot(x, y4, color='red', label='y = 1.05Ex')
-    plt.plot(x, y5, color='red', label='y = 0.95Ex')
+    # 線の描画
+    plt.plot(x_line, y1_line, color='gray')
+    plt.plot(x_line, y2_line, color='blue')
+    plt.plot(x_line, y3_line, color='red')
+    plt.plot(x_line, y4_line, color='red')
+    plt.plot(x_line, y5_line, color='red')
 
-    # テキストの生成
-    plt.text(x[-1], y1[-1], '  y = ax + b', color='gray', va='center')
-    plt.text(x[-1], y2[-1], '  y = ax',     color='blue', va='center')
-    plt.text(x[-1], y3[-1], '  E',     color='red', va='center')
-    plt.text(x[-1], y4[-1], '  +5%', color='red', va='center')
-    plt.text(x[-1], y5[-1], '  -5%', color='red', va='center')
+    # 点の描画
+    plt.scatter(x_dot, y1_dot, color='gray')
+    plt.scatter(x_dot, y2_dot, color='blue')
+    plt.scatter(x_dot, y3_dot, color='red')
+    plt.scatter(x_dot, y4_dot, color='red')
+    plt.scatter(x_dot, y5_dot, color='red')
 
-    # タイトル・軸
+    # テキスト描画
+    plt.text(5, y1_line[-1], '  y = ax + b', color='gray', va='center')
+    plt.text(5, y2_line[-1], '  y = ax',     color='blue', va='center')
+    plt.text(5, y3_line[-1], '  E',          color='red', va='center')
+    plt.text(5, y4_line[-1], '  +5%',        color='red', va='center')
+    plt.text(5, y5_line[-1], '  -5%',        color='red', va='center')
+
+    # 軸ラベル
     plt.title('図1  荷重・たわみの関係')
     plt.xlabel('たわみ δ (mm)')
     plt.ylabel('荷重 (N)')
     plt.grid(True)
-    # plt.legend()
     plt.tight_layout()
+
+    # 補助目盛り
+    plt.minorticks_on()
+    plt.grid(which='minor', linestyle=':', linewidth='0.5', color='gray')
+
+    # 表示
     plt.show()

@@ -71,7 +71,7 @@ def plot(a, b, E):
 
     # 表示
     try:
-        print("\n全てのプロットを正常に描画しました。\n")
+        print("\n\033[32m全てのプロットを正常に描画しました。\033[0m\n")
         plt.show()
     except Exception as e:
         print(f"{e}")  

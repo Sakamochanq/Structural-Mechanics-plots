@@ -27,7 +27,14 @@ def plot(a, b, E):
     y4_dot = (E*1.05)*x_dot
     y5_dot = (E*0.95)*x_dot
 
-    # グラフ作成
+    # 計算結果をConsoleに出力
+    print(f'\ny = {a}x + {b}')
+    print(f'y = {a}x')
+    print(f'E = {E}')
+    print(f'E +5% = {E*1.05}')
+    print(f'E -5% = {E*0.95}')
+
+    # プロット作成
     plt.figure(figsize=(8, 6))
 
     # 線の描画
@@ -63,4 +70,8 @@ def plot(a, b, E):
     plt.grid(which='minor', linestyle=':', linewidth='0.5', color='gray')
 
     # 表示
-    plt.show()
+    try:
+        print("\n全てのプロットを正常に描画しました。\n")
+        plt.show()
+    except Exception as e:
+        print(f"{e}")  

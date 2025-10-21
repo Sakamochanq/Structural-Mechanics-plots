@@ -1,6 +1,6 @@
-def main():
-    print("Hello from structural-mechanics-plots!")
-
+import analysis.LoadDeflection as LoadDeflection
 
 if __name__ == "__main__":
-    main()
+
+    # 荷重・たわみ関係のプロット
+    LoadDeflection.plot(5000, 20000)

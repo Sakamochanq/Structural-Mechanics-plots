@@ -57,7 +57,7 @@ y5_line = (E*0.95)*x_line
 <br>
 
 <div align="center">
-    <a href="#"></a>
+    <a href="#">
         <img src="./assets/Screenie.png" width="400"/>
     </a>
 </div>

@@ -19,7 +19,7 @@ cd Structural-Mechanics-plots/src
 <h4>2. package</h4>
 
 ```bash
-uv add matplotlib
+uv add matplotlib numpy
 ```
 
 <h4>3. run</h4>

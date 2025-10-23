@@ -36,6 +36,7 @@ uv run main.py
 
 ```py
 # ./assets/lang.pyから呼び出し
+import assets.lang as lang
 lang.set_font(font_name=None or lang.find_japanese_font())
 ```
 

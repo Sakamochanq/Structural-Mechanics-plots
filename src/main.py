@@ -1,8 +1,13 @@
 import analysis.LoadDeflection as LoadDeflection
+import assets.cls as cls
+
+# コンソールをクリアするかのフラグ
+IS_CLEAR = True
 
 if __name__ == "__main__":
 
     while True:
+        cls.clear_console(IS_CLEAR)
         
         # クライアントからの入力受付
         print("\n\033[36mカンマ区切りで3つの数値を入力してください。（左から a, b, E）\033[0m")
@@ -11,6 +16,7 @@ if __name__ == "__main__":
         values = input("\n❯ ")
         try:
             if values.strip() == "?exit":
+                cls.clear_console(IS_CLEAR)
                 break
             
             a, b, E = map(float, values.split(","))
